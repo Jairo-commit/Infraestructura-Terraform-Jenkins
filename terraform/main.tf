@@ -20,7 +20,7 @@ resource "docker_container" "nginx_html" {
   image = docker_image.nginx.name
   ports {
     internal = 80
-    external = 8080
+    external = 8888
   }
 
   volumes {
