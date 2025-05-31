@@ -16,7 +16,7 @@ resource "docker_image" "nginx" {
 
 # Contenedor Nginx
 resource "docker_container" "nginx_html" {
-  name  = "mi_sitio_web"
+  name  = "mi_sitio_web_${var.build_number}"  # Use a variable for unique naming
   image = docker_image.nginx.name
   ports {
     internal = 80
