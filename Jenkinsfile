@@ -18,9 +18,10 @@ pipeline {
     stage('Aplicar Terraform') {
       steps {
         dir('terraform') {
-          sh 'terraform init'
+            sh 'terraform init'
             sh "terraform apply -var build_number=${buildNumber} -auto-approve"
         }
       }
     }
+  }
 }
