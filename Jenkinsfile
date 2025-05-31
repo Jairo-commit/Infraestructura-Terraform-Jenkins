@@ -18,9 +18,8 @@ pipeline {
     stage('Aplicar Terraform') {
       steps {
         dir('terraform') {
-            def buildNumber = env.BUILD_NUMBER
             sh 'terraform init'
-            sh "terraform apply -var build_number=${buildNumber} -auto-approve"
+            sh "terraform apply -auto-approve"
         }
       }
     }
