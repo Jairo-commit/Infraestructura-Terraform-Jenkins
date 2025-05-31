@@ -12,7 +12,7 @@ pipeline {
       steps {
         dir('terraform') {
           sh 'terraform init'
-          sh 'terraform apply -auto-approve'
+            sh "terraform apply -var build_number=${buildNumber} -auto-approve"
         }
       }
     }
