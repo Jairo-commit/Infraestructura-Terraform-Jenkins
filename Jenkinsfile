@@ -7,7 +7,14 @@ pipeline {
         checkout scm
       }
     }
-
+    stage('Cleanup') {
+      steps {
+          script {
+            // Remove the existing container if it exists
+            sh "docker rm -f mi_sitio_web || true"
+                }
+            }
+        }
     stage('Aplicar Terraform') {
       steps {
         dir('terraform') {
